@@ -6,6 +6,7 @@ import {Cart} from './pages/cart/cart';
 import "react-notifications/lib/notifications.css"
 import {NotificationContainer} from 'react-notifications';
 import { ShopContextProvider } from "./context/shop-context";
+import { Modal } from "./pages/cart/modal";
 
 function App() {
   return (
@@ -13,10 +14,11 @@ function App() {
     <NotificationContainer/>
       <ShopContextProvider>
       <Router>
-        <NavBar />
+        <NavBar/>
         <Routes>
           <Route path="/" element={<Shop/>}/>
           <Route path="/cart" element={<Cart/>}/> 
+          <Route path="/checkout" element= {<Modal/>}/> 
         </Routes>    
       </Router>
       </ShopContextProvider>

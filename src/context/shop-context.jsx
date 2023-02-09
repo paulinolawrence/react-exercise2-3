@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { PRODUCTS } from "../data/products";
+import { toast } from 'react-toastify';
 
 export const ShopContext = createContext(null);
 
@@ -39,6 +40,16 @@ export const ShopContextProvider = (props) => {
 
   const checkout = () => {
     setCartItems(getDefaultCart());
+    toast.success('Done Checking out!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: false,
+      progress: undefined,
+      theme: "colored",
+      });
   };
 
   const contextValue = {

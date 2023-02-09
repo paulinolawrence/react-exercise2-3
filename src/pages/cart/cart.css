@@ -22,7 +22,8 @@
 
 .cartItem .description {
   width: 100%;
-  font-size: 30px;
+  font-size: 23px;
+  font-style: inherit;
 }
 
 .countHandler input {

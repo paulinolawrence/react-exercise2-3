@@ -27,10 +27,42 @@ export const ShopContextProvider = (props) => {
   };
 
   const addToCart = (itemId) => {
+    const cartItemCount = cartItems[itemId];
+    if (cartItemCount == 0) {
+      setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
+      toast.success('Done adding to cart!', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+        theme: "colored",
+        });
+    } else {
+      toast.warning('This item is already in the cart.', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+        theme: "colored",
+        });
+    }
+  };
+
+  const increaseQty = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
   };
 
   const removeFromCart = (itemId) => {
+    setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - prev[itemId] }));
+  };
+
+  const decreaseQty = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
   };
 
@@ -55,8 +87,10 @@ export const ShopContextProvider = (props) => {
   const contextValue = {
     cartItems,
     addToCart,
+    increaseQty,
     updateCartItemCount,
     removeFromCart,
+    decreaseQty,
     getTotalCartAmount,
     checkout,
   };

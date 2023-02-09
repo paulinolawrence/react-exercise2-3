@@ -8,14 +8,12 @@ import {UserCircle} from 'phosphor-react';
 
 export const NavBar = () => {
   const { cartItems } = useContext(ShopContext);
-  console.log(cartItems);
   let totalItems = 0;
   for (const item in cartItems){
     if (cartItems[item] > 0){
       totalItems += cartItems[item];
     }
   }
-  console.log(totalItems);
 
   return (
     <div className="navbar">

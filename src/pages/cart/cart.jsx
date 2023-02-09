@@ -7,7 +7,7 @@ import "./cart.css";
 
 export const Cart = () => {
   const { cartItems, getTotalCartAmount, checkout } = useContext(ShopContext);
-  const totalAmount = getTotalCartAmount();
+  const totalAmount = getTotalCartAmount().toFixed(2);
   const [isOpen, setIsOpen] = useState(false);
 
   const navigate = useNavigate();

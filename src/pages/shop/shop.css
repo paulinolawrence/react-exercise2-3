@@ -15,7 +15,7 @@
     border-radius: 15px;
     width: 300px;
     height: 350px;
-    margin: 100px;
+    margin: 115px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,6 +28,7 @@
   
   .product .description {
     text-align: center;
+    font-size: 20px;
   }
   
   .product:hover {

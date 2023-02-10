@@ -20,9 +20,9 @@ export const PRODUCTS = [
 
     {
         id:2,
-        productName: "Planet Earth Checkered Shirt and Blue Bug Long Sleeve Tee Shirt",
-        price: 45.90,
-        productImg: product2
+        productName: "Play Goal Win Polo Shirt",
+        price: 19.90,
+        productImg: product7
     },
 
     {
@@ -55,9 +55,9 @@ export const PRODUCTS = [
 
     {
         id:7,
-        productName: "Play Goal Win Polo Shirt",
-        price: 19.90,
-        productImg: product7
+        productName: "Planet Earth Checkered Shirt and Blue Bug Long Sleeve Tee Shirt",
+        price: 45.90,
+        productImg: product2
     },
 
     {

@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { ShopContext } from "../../context/shop-context";
 import "./cart.css";
 import {Trash} from 'phosphor-react';
-import {Alien} from 'phosphor-react';
 
 export const CartItem = (props) => {
   const { id, productName, price, productImg } = props.data;

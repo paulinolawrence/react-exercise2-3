@@ -1,13 +1,13 @@
 import React, {useContext} from 'react';
-import { ShopContext } from "../../context/shop-context";
+import { ShopContext } from "../context/shop-context";
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { PRODUCTS } from "../../data/products";
-import { CheckoutItem } from './checkout-item';
+import { PRODUCTS } from "../data/products";
+import { CheckoutItem } from '../pages/checkout-item/checkout-item';
 import { useNavigate } from "react-router-dom";
 
 export const MyModal = (props) => {

@@ -6,7 +6,7 @@ import {Cart} from './pages/cart/cart';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ShopContextProvider } from "./context/shop-context";
-import { MyModal } from "./pages/cart/mymodal";
+import { MyModal } from "./components/mymodal";
 
 
 

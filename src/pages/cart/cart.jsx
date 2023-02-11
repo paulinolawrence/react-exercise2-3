@@ -4,7 +4,7 @@ import { PRODUCTS } from "../../data/products";
 import { CartItem } from "./cart-item";
 import { useNavigate } from "react-router-dom";
 import "./cart.css";
-import { MyModal } from "./mymodal";
+import { MyModal } from "../../components/mymodal";
 import Button from 'react-bootstrap/Button';
 
 export const Cart = () => {
@@ -19,7 +19,7 @@ export const Cart = () => {
       {totalAmount > 0 ? (
         <div>
           <br/>
-          <h2>-Your Cart Items-</h2>
+          <h2>- Your Cart Items -</h2>
           <div className="cart">
           {PRODUCTS.map((product) => {
             if (cartItems[product.id] !== 0) {

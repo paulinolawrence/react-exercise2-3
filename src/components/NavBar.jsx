@@ -4,8 +4,9 @@ import {Link} from 'react-router-dom';
 import {ShoppingCart} from 'phosphor-react';
 import "./navbar.css";
 import Badge from "@material-ui/core/Badge";
+import { HowToReg } from '@material-ui/icons';
 
-export const NavBar = () => {
+export const Navbar = () => {
   const { cartItems } = useContext(ShopContext);
   let totalItems = 0;
   for (const item in cartItems){
@@ -21,6 +22,9 @@ export const NavBar = () => {
             <Badge overlap='rectangular' color="secondary" badgeContent={totalItems}>
               <Link to="/cart"><ShoppingCart size={35} /></Link>
             </Badge>
+        </div>
+        <div className="admin">
+            <Link to="/admin"><HowToReg size={50} /> Admin</Link>
         </div>
     </div>
   )

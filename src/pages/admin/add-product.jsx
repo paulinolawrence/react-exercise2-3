@@ -12,8 +12,9 @@ import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { ShopContext } from "../../context/shop-context";
 
-export const AddProduct = () => {
-  const [form, setForm] = useState({
+export const AddProduct = (initialValue) => {
+  const [form, setForm] = useState(
+   {
     productName: "",
     price: "",
     productImg: "", 
@@ -76,7 +77,7 @@ export const AddProduct = () => {
     >
       <Grid item xs={3}>
         <Card>
-          <CardHeader title='Add Product' />
+          <CardHeader title="Add Product"/>
           <CardContent>
             <Grid container spacing={2}>
               <Grid item xs={12}>

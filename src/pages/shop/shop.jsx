@@ -1,5 +1,4 @@
 import React, {useContext} from "react";
-import { PRODUCTS } from "../../data/products";
 import { Product } from "./product";
 import { ShopContext } from "../../context/shop-context";
 import "./shop.css";

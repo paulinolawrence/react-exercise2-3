@@ -27,6 +27,23 @@ export const ShopContextProvider = (props) => {
     setCartItems((prev) => ({ ...prev, [products.length + 1]: 0}));
   };
 
+  const editProduct = (id, editProduct) => {
+    setProducts(products.map((product) => {
+        if (product.id === id) {
+          return {
+            id,
+            ...editProduct,
+          };
+        }
+        return product;
+      })
+    );
+  };
+
+  const deleteProduct = (id) => {
+    setProducts(products.filter((product) => product.id !== id));
+  };
+
   const getTotalCartAmount = () => {
     let totalAmount = 0;
     for (const item in cartItems) {
@@ -100,6 +117,7 @@ export const ShopContextProvider = (props) => {
     products,
     cartItems,
     addProduct,
+    deleteProduct,
     addToCart,
     increaseQty,
     updateCartItemCount,

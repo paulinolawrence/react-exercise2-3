@@ -1,6 +1,5 @@
 import React, { useContext, useState  } from "react";
 import { ShopContext } from "../../context/shop-context";
-import { PRODUCTS } from "../../data/products";
 import { CartItem } from "./cart-item";
 import { useNavigate } from "react-router-dom";
 import "./cart.css";
@@ -8,7 +7,7 @@ import { MyModal } from "../../components/mymodal";
 import Button from 'react-bootstrap/Button';
 
 export const Cart = () => {
-  const { cartItems, getTotalCartAmount, checkout } = useContext(ShopContext);
+  const { cartItems, getTotalCartAmount, products } = useContext(ShopContext);
   const totalAmount = getTotalCartAmount().toFixed(2);
   const [modalShow, setModalShow] = useState(false);
   //checkout();
@@ -21,11 +20,11 @@ export const Cart = () => {
           <br/>
           <h2>- Your Cart Items -</h2>
           <div className="cart">
-          {PRODUCTS.map((product) => {
+          {products.map((product) => {
             if (cartItems[product.id] !== 0) {
               return <CartItem data={product} key={product.id}/>;
             }
-          })}
+          })};
           </div>
           <div className="checkout">
             <h4> Subtotal Price: ${totalAmount} </h4>

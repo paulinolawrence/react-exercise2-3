@@ -4,30 +4,34 @@ import { toast } from 'react-toastify';
 
 export const ShopContext = createContext(null);
 
-const getDefaultCart = () => {
+const getDefaultCart = (data) => {
   let cart = {};
-  for (let i = 1; i < PRODUCTS.length + 1; i++) {
+  for (let i = 1; i < data.length + 1; i++) {
     cart[i] = 0;
   }
   return cart;
 };
 
 export const ShopContextProvider = (props) => {
-  const [cartItems, setCartItems] = useState(getDefaultCart());
   const [products, setProducts] = useState(PRODUCTS);
+  const [cartItems, setCartItems] = useState(getDefaultCart(products));
+  console.log('outside');
+  console.log(products);
+  console.log(cartItems);
 
   const addProduct = (product) => {
     setProducts([
       ...products,
       { id: products.length + 1 , ...product, },
     ]);
-  }
+    setCartItems((prev) => ({ ...prev, [products.length + 1]: 0}));
+  };
 
   const getTotalCartAmount = () => {
     let totalAmount = 0;
     for (const item in cartItems) {
       if (cartItems[item] > 0) {
-        let itemInfo = PRODUCTS.find((product) => product.id === Number(item));
+        let itemInfo = products.find((product) => product.id === Number(item));
         totalAmount += cartItems[item] * itemInfo.price;
       }
     }
@@ -79,7 +83,7 @@ export const ShopContextProvider = (props) => {
   };
 
   const checkout = () => {
-    setCartItems(getDefaultCart());
+    setCartItems(getDefaultCart(products));
     toast.success('Done Checking out!', {
       position: "top-right",
       autoClose: 5000,
@@ -106,8 +110,10 @@ export const ShopContextProvider = (props) => {
   };
 
   return (
-    <ShopContext.Provider value={contextValue}>
-      {props.children}
-    </ShopContext.Provider>
+    <>
+      <ShopContext.Provider value={contextValue}>
+        {props.children}
+      </ShopContext.Provider>
+    </>
   );
 };

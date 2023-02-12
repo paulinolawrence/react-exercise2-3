@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useContext} from "react";
 import { PRODUCTS } from "../../data/products";
 import { Product } from "./product";
-import { NavBar } from "../../components/navbar";
+import { ShopContext } from "../../context/shop-context";
 import "./shop.css";
 
 export const Shop = () => {
+  const { products,  } = useContext(ShopContext);
   return (
     <div className="shop">
       <div className="shopTitle">
@@ -12,7 +13,7 @@ export const Shop = () => {
       </div>
       
       <div className="products">
-        {PRODUCTS.map((product) => (     
+        {products.map((product) => (     
           <Product data={product} key={product.id}/>
         ))}
       

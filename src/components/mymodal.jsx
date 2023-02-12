@@ -6,12 +6,11 @@ import Container from 'react-bootstrap/Container';
 import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { PRODUCTS } from "../data/products";
 import { CheckoutItem } from '../pages/checkout-item/checkout-item';
 import { useNavigate } from "react-router-dom";
 
 export const MyModal = (props) => {
-  const { cartItems, getTotalCartAmount, checkout } = useContext(ShopContext);
+  const { cartItems, getTotalCartAmount, checkout, products } = useContext(ShopContext);
   const totalAmount = getTotalCartAmount().toFixed(2);
   const navigate = useNavigate();
   let totalItems = 0;
@@ -29,7 +28,7 @@ export const MyModal = (props) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body className="show-grid">
-          {PRODUCTS.map((product) => {
+          {products.map((product) => {
             if (cartItems[product.id] !== 0) {
               return <CheckoutItem data={product} key={product.id}/>
             }

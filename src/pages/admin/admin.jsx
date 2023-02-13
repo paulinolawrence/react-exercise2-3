@@ -2,9 +2,7 @@ import React, {useContext} from 'react'
 import { TableContainer, Table, TableHead, TableRow, TableCell,TableBody, Paper, Grid, Button } from "@mui/material";
 import  Add  from "@mui/icons-material/Add";
 import { AdminTable } from '../../components/admin-table'
-import { PRODUCTS } from "../../data/products";
 import { Link } from "react-router-dom";
-import { hover } from '@testing-library/user-event/dist/hover';
 import { ShopContext } from '../../context/shop-context';
 
 export const Admin = () => {

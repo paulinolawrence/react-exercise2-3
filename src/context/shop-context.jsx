@@ -117,6 +117,7 @@ export const ShopContextProvider = (props) => {
     products,
     cartItems,
     addProduct,
+    editProduct,
     deleteProduct,
     addToCart,
     increaseQty,

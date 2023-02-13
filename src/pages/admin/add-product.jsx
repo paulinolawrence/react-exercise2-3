@@ -12,15 +12,15 @@ import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { ShopContext } from "../../context/shop-context";
 
-export const AddProduct = (initialValue) => {
+export const AddProduct = () => {
   const [form, setForm] = useState(
-   {
+    {
     productName: "",
     price: "",
     productImg: "", 
   })
 
-  const { addProduct,} = useContext(ShopContext);
+  const { addProduct } = useContext(ShopContext);
   
   const [errors, setErrors] = useState({});
 
@@ -35,7 +35,7 @@ export const AddProduct = (initialValue) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    addProduct(form);
+    addProduct(form)
     navigate("/admin");
   };
 
@@ -77,7 +77,7 @@ export const AddProduct = (initialValue) => {
     >
       <Grid item xs={3}>
         <Card>
-          <CardHeader title="Add Product"/>
+          <CardHeader title= "Add Product"/>
           <CardContent>
             <Grid container spacing={2}>
               <Grid item xs={12}>

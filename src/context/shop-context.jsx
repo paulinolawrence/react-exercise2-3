@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import { PRODUCTS } from "../data/products";
 import { toast } from 'react-toastify';
 
@@ -25,6 +25,16 @@ export const ShopContextProvider = (props) => {
       { id: products.length + 1 , ...product, },
     ]);
     setCartItems((prev) => ({ ...prev, [products.length + 1]: 0}));
+    toast.success('Done adding!', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: false,
+      progress: undefined,
+      theme: "colored",
+      });
   };
 
   const editProduct = (id, editProduct) => {
@@ -38,6 +48,16 @@ export const ShopContextProvider = (props) => {
         return product;
       })
     );
+    toast.success('Done editing!', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: false,
+      progress: undefined,
+      theme: "colored",
+      });
   };
 
   const deleteProduct = (id) => {
@@ -57,7 +77,7 @@ export const ShopContextProvider = (props) => {
 
   const addToCart = (itemId) => {
     const cartItemCount = cartItems[itemId];
-    if (cartItemCount == 0) {
+    if (cartItemCount === 0) {
       setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
       toast.success('Done adding to cart!', {
         position: "top-right",
@@ -69,18 +89,7 @@ export const ShopContextProvider = (props) => {
         progress: undefined,
         theme: "colored",
         });
-    } else {
-      toast.warning('This item is already in the cart.', {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: false,
-        progress: undefined,
-        theme: "colored",
-        });
-    }
+    } 
   };
 
   const increaseQty = (itemId) => {

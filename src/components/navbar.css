@@ -44,3 +44,10 @@
     transform: scale(1.1);
     color:white
 }
+
+.header {
+    color:white;
+    font-style: normal;
+    font-size: x-large;
+
+}

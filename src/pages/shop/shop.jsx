@@ -8,7 +8,7 @@ export const Shop = () => {
   return (
     <div className="shop">
       <div className="shopTitle">
-        <h1>Welcome!</h1>
+        <h2>Welcome!</h2>
       </div>
       
       <div className="products">

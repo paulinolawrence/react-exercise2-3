@@ -23,6 +23,9 @@ export const Navbar = () => {
               <Link to="/cart"><ShoppingCart size={35} /></Link>
             </Badge>
         </div>
+        <div className="header">
+            E-commerce App  
+        </div>
         <div className="admin">
             <Link to="/admin"><HowToReg size={50} /> Admin</Link>
         </div>

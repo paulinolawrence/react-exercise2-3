@@ -7,13 +7,13 @@ import { Container } from 'react-bootstrap';
 
 export const CheckoutItem = (props) => {
     const { id, productName, price, productImg } = props.data;
-    const { cartItems,} = useContext(ShopContext);
+    const { cartItems, } = useContext(ShopContext);
   return (
     <div className='checkOutItem'>
         <Container>
             <Row>
                 <Col xs={4} md={3}>
-                    <img src={productImg}/>   
+                    <img src={productImg} alt="Not available"/>   
                 </Col>
     
                 <Col xs={4} md={4}>

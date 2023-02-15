@@ -13,15 +13,14 @@ import { useNavigate } from "react-router-dom";
 import { ShopContext } from "../../context/shop-context";
 
 export const AddProduct = () => {
-  const [form, setForm] = useState(
-    {
+  const [form, setForm] = useState({
     productName: "",
     price: "",
-    productImg: "", 
-  })
+    productImg: "",
+  });
 
   const { addProduct } = useContext(ShopContext);
-  
+
   const [errors, setErrors] = useState({});
 
   const navigate = useNavigate();
@@ -29,13 +28,12 @@ export const AddProduct = () => {
   const schema = Joi.object({
     productName: Joi.string().min(6).max(15).allow("").required(),
     price: Joi.number().precision(2).required(),
-    productImg: Joi.string().min(2).max(15).allow("").required(),
+    productImg: Joi.string().allow("").required(),
   });
-
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    addProduct(form)
+    addProduct(form);
     navigate("/admin");
   };
 
@@ -77,7 +75,7 @@ export const AddProduct = () => {
     >
       <Grid item xs={3}>
         <Card>
-          <CardHeader title= "Add Product"/>
+          <CardHeader title="Add Product" />
           <CardContent>
             <Grid container spacing={2}>
               <Grid item xs={12}>
@@ -126,5 +124,5 @@ export const AddProduct = () => {
         </Card>
       </Grid>
     </Grid>
-  )
-}
+  );
+};
